@@ -1,0 +1,112 @@
+* { box-sizing: border-box; }
+:root {
+  --bg: #fafafa;
+  --fg: #111;
+  --muted: #666;
+  --accent: #0ea5e9;
+  --room: #fffbe6;
+  --hall: #e6fffb;
+  --stairs: #ffe6f2;
+  --line: #111;
+}
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Arial, "Segoe UI Emoji";
+  color: var(--fg);
+  background: var(--bg);
+}
+.header {
+  padding: 24px 16px 8px;
+  text-align: center;
+}
+.header h1 {
+  margin: 0 0 6px;
+  font-size: 24px;
+}
+.sub {
+  margin: 0;
+  color: var(--muted);
+}
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 16px;
+}
+.canvas-wrap {
+  overflow: auto;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 8px;
+}
+svg { width: 100%; height: auto; display: block; }
+
+/* Plan styles */
+.outer {
+  fill: none;
+  stroke: var(--line);
+  stroke-width: 3;
+}
+.room {
+  fill: var(--room);
+  stroke: var(--line);
+  stroke-width: 2;
+}
+.hall {
+  fill: var(--hall);
+  stroke: var(--line);
+  stroke-width: 2;
+}
+.stairs {
+  fill: var(--stairs);
+  stroke: var(--line);
+  stroke-width: 2;
+}
+.door-gap { fill: #fff; stroke: none; }
+
+.label {
+  font-size: 14px;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  fill: var(--fg);
+}
+.label.center { font-weight: 600; }
+
+.note { font-size: 13px; text-anchor: middle; fill: var(--muted); }
+
+.dims line { stroke: #333; stroke-width: 1.5; }
+.dim-text {
+  font-size: 12px;
+  fill: #333;
+  text-anchor: middle;
+}
+.rotate { writing-mode: vertical-rl; glyph-orientation-vertical: 0; }
+
+.legend {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin: 12px 0 0;
+}
+.legend-item { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); }
+.legend .box {
+  width: 16px; height: 12px; border: 1px solid #111;
+  display: inline-block;
+}
+.legend .hall { background: var(--hall); }
+.legend .room { background: var(--room); }
+.legend .stairs { background: var(--stairs); }
+
+.actions { margin: 12px 0 0; }
+.btn {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.btn:hover { filter: brightness(0.95); }
+
+.footer { text-align: center; color: var(--muted); padding: 16px; }

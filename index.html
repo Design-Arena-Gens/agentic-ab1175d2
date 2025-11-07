@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>??????? ?????? ????? ? 24x12 ???, 12x11 ????, ????????</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="header">
+    <h1>??????? ?????? ?????</h1>
+    <p class="sub">???: 24?12 ???? ? ????? ???? 12?11 ???? ?? 2-2 ???? ? ????: 11?-6?</p>
+  </header>
+
+  <main class="container">
+    <div class="canvas-wrap">
+      <!-- Scale: 1 ft = 20 px; Overall: 34ft ? 24ft => 680?480 -->
+      <svg id="plan" viewBox="0 0 780 580" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="??????? ?????? ?????">
+        <defs>
+          <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 0 L 10 5 L 0 10 z" fill="#333" />
+          </marker>
+          <pattern id="hatch" patternUnits="userSpaceOnUse" width="6" height="6" patternTransform="rotate(45)">
+            <line x1="0" y1="0" x2="0" y2="6" stroke="#ccc" stroke-width="2" />
+          </pattern>
+        </defs>
+
+        <!-- Margins -->
+        <g transform="translate(50,50)">
+          <!-- Outer building: 34ft x 24ft => 680 x 480 -->
+          <rect x="0" y="0" width="680" height="480" class="outer" />
+
+          <!-- Central Hall: width 12ft (240px), height 24ft (480px), centered horizontally (11ft left, 11ft right) -->
+          <rect x="220" y="0" width="240" height="480" class="hall" />
+          <text x="340" y="240" class="label center">??? 24??12?</text>
+
+          <!-- Left rooms: two rooms stacked vertically, each 12ft x 11ft => 240 x 220 -->
+          <!-- Top-left room -->
+          <rect x="0" y="0" width="220" height="240" class="room" />
+          <text x="110" y="120" class="label">???? 12??11?</text>
+          <!-- Bottom-left room -->
+          <rect x="0" y="240" width="220" height="240" class="room" />
+          <text x="110" y="360" class="label">???? 12??11?</text>
+
+          <!-- Right rooms -->
+          <!-- Top-right room -->
+          <rect x="460" y="0" width="220" height="240" class="room" />
+          <text x="570" y="120" class="label">???? 12??11?</text>
+          <!-- Bottom-right room -->
+          <rect x="460" y="240" width="220" height="240" class="room" />
+          <text x="570" y="360" class="label">???? 12??11?</text>
+
+          <!-- Stairs inside hall at bottom-right corner of hall: choose 6ft x 8ft => 120 x 160 -->
+          <rect x="340" y="320" width="120" height="160" class="stairs" />
+          <text x="400" y="400" class="label">????????</text>
+
+          <!-- Door symbols (optional simple gaps) -->
+          <!-- Left rooms doors opening to hall -->
+          <rect x="220" y="100" width="10" height="40" class="door-gap" />
+          <rect x="220" y="340" width="10" height="40" class="door-gap" />
+          <!-- Right rooms doors opening to hall -->
+          <rect x="450" y="100" width="10" height="40" class="door-gap" />
+          <rect x="450" y="340" width="10" height="40" class="door-gap" />
+
+          <!-- Dimension lines -->
+          <!-- Overall width: 34ft (680px) -->
+          <g class="dims">
+            <line x1="0" y1="-20" x2="680" y2="-20" marker-start="url(#arrow)" marker-end="url(#arrow)" />
+            <line x1="0" y1="-20" x2="0" y2="0" />
+            <line x1="680" y1="-20" x2="680" y2="0" />
+            <text x="340" y="-28" class="dim-text">??? ?????? 34?</text>
+          </g>
+
+          <!-- Overall height: 24ft (480px) -->
+          <g class="dims">
+            <line x1="700" y1="0" x2="700" y2="480" marker-start="url(#arrow)" marker-end="url(#arrow)" />
+            <line x1="680" y1="0" x2="700" y2="0" />
+            <line x1="680" y1="480" x2="700" y2="480" />
+            <text x="706" y="240" class="dim-text rotate">??? ?????? 24?</text>
+          </g>
+
+          <!-- Internal dims: Hall width 12ft, side block 11ft each -->
+          <g class="dims">
+            <!-- Left block 11ft -->
+            <line x1="0" y1="500" x2="220" y2="500" marker-start="url(#arrow)" marker-end="url(#arrow)" />
+            <text x="110" y="512" class="dim-text">11?</text>
+            <!-- Hall 12ft -->
+            <line x1="220" y1="500" x2="460" y2="500" marker-start="url(#arrow)" marker-end="url(#arrow)" />
+            <text x="340" y="512" class="dim-text">12? (??? ??????)</text>
+            <!-- Right block 11ft -->
+            <line x1="460" y1="500" x2="680" y2="500" marker-start="url(#arrow)" marker-end="url(#arrow)" />
+            <text x="570" y="512" class="dim-text">11?</text>
+          </g>
+
+          <!-- Internal dims vertical: each room 12ft, hall 24ft -->
+          <g class="dims">
+            <!-- Top room 12ft -->
+            <line x1="-20" y1="0" x2="-20" y2="240" marker-start="url(#arrow)" marker-end="url(#arrow)" />
+            <text x="-26" y="120" class="dim-text rotate">12?</text>
+            <!-- Bottom room 12ft -->
+            <line x1="-20" y1="240" x2="-20" y2="480" marker-start="url(#arrow)" marker-end="url(#arrow)" />
+            <text x="-26" y="360" class="dim-text rotate">12?</text>
+          </g>
+
+          <!-- Height note -->
+          <text x="340" y="-50" class="note">?? ?? ?????: 11?-6?</text>
+        </g>
+      </svg>
+    </div>
+
+    <div class="legend">
+      <div class="legend-item"><span class="box hall"></span> ???</div>
+      <div class="legend-item"><span class="box room"></span> ????</div>
+      <div class="legend-item"><span class="box stairs"></span> ????????</div>
+    </div>
+
+    <div class="actions">
+      <button id="downloadBtn" class="btn">SVG ??????? ????</button>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <small>?????: 1? = 20px ? ????? ????????? ?? (?????? ????)</small>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+</html>
